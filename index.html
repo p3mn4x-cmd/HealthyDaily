@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>คำนวณ BMI & แคลต่อวัน</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  body{
+    font-family:'Kanit', sans-serif;
+    background: linear-gradient(135deg,#b7f8db,#50a7c2);
+    display:flex; justify-content:center; align-items:center;
+    height:100vh; margin:0;
+  }
+  .card{
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    width:520px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  }
+  h1{ text-align:center; margin:0 0 12px; }
+  .section{ margin:12px 0; }
+  .label{ margin-bottom:6px; font-weight:600; }
+  input, select{
+    width:100%;
+    padding:10px 12px;
+    border-radius:12px;
+    border:1px solid #ddd;
+    font-family:inherit;
+    box-sizing:border-box;
+  }
+  button{
+    width:100%;
+    padding:12px 14px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:#0ea5e9;
+    color:white;
+    font-weight:700;
+    margin-top:8px;
+  }
+  #calResult{
+    margin-top:14px;
+    font-weight:600;
+    line-height:1.6;
+  }
+  .good { color:#16a34a; font-weight:700; }
+  .warn { color:#f59e0b; font-weight:700; }
+  .bad  { color:#ef4444; font-weight:700; }
+  .info { color:#6366f1; font-weight:700; }
+</style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>📌 คำนวณ BMI & แคลต่อวัน</h1>
+
+    <div class="section">
+      <div class="label">น้ำหนัก (kg)</div>
+      <input type="number" id="weight" min="1" placeholder="เช่น 55">
+    </div>
+
+    <div class="section">
+      <div class="label">ส่วนสูง (cm)</div>
+      <input type="number" id="height" min="1" placeholder="เช่น 160">
+    </div>
+
+    <div class="section">
+      <div class="label">อายุ (ปี)</div>
+      <input type="number" id="age" min="1" placeholder="เช่น 22">
+    </div>
+
+    <div class="section">
+      <div class="label">เพศ</div>
+      <select id="sex">
+        <option value="female">หญิง</option>
+        <option value="male">ชาย</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <div class="label">ระดับกิจกรรม</div>
+      <select id="activity">
+        <option value="1.2">นั่งทำงาน ไม่ค่อยออกกำลัง (1.2)</option>
+        <option value="1.375">เบา 1–3 วัน/สัปดาห์ (1.375)</option>
+        <option value="1.55">ปานกลาง 3–5 วัน/สัปดาห์ (1.55)</option>
+        <option value="1.725">หนัก 6–7 วัน/สัปดาห์ (1.725)</option>
+        <option value="1.9">หนักมาก/งานใช้แรง (1.9)</option>
+      </select>
+    </div>
+
+    <button onclick="calcHealth()">คำนวณ</button>
+
+    <div id="calResult"></div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
